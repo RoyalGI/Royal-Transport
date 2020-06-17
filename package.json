@@ -1,0 +1,19 @@
+{
+  "name": "royal-transport",
+  "version": "1.0.0",
+  "description": "A prototype vendor application for Royal Transport",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RoyalGI/Royal-Transport.git"
+  },
+  "author": "Jakir Hossain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RoyalGI/Royal-Transport/issues"
+  },
+  "homepage": "https://github.com/RoyalGI/Royal-Transport#readme"
+}
