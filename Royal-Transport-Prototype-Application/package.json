@@ -20,7 +20,8 @@
   "config": {
     "forge": {
       "packagerConfig": {},
-      "makers": [{
+      "makers": [
+        {
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "royal_transport_prototype_application"
@@ -44,7 +45,8 @@
     }
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-util": "^0.14.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.51",
