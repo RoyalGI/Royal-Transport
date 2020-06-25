@@ -1,8 +1,13 @@
 const {
   app,
+  Menu,
   BrowserWindow
 } = require('electron');
 const path = require('path');
+const {
+  ADDRGETNETWORKPARAMS
+} = require('dns');
+const isMac = process.platform === 'darwin'
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -15,11 +20,56 @@ const createWindow = () => {
     width: 1000,
     height: 700,
   });
+  const template = [
+
+    // { role: 'appMenu' }
+    ...(isMac ? [{
+      label: app.name,
+      submenu: [{
+          role: 'about'
+        },
+        {
+          type: 'separator'
+        },
+        {
+          role: 'services'
+        },
+        {
+          type: 'separator'
+        },
+        {
+          role: 'hide'
+        },
+        {
+          role: 'hideothers'
+        },
+        {
+          role: 'unhide'
+        },
+        {
+          type: 'separator'
+        },
+        {
+          role: 'quit'
+        }
+      ]
+    }] : []),
+    {
+      label: 'Add',
+      click: async () => {
+        const {
+          shell
+        } = require('electron')
+        mainWindow.loadFile(path.join(__dirname, 'addnew.html'));
+      }
+    },
+    
+  ];
+  const menu = Menu.buildFromTemplate(template);
+  Menu.setApplicationMenu(menu);
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
-
-
 };
 
 // This method will be called when Electron has finished
